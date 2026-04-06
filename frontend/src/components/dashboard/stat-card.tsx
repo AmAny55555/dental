@@ -1,5 +1,4 @@
 import { LucideIcon } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
 type StatCardProps = {
   title: string;
@@ -15,24 +14,18 @@ export default function StatCard({
   hint,
 }: StatCardProps) {
   return (
-    <Card className="overflow-hidden rounded-[28px] border-white/70 bg-white/80 shadow-[0_20px_80px_-25px_rgba(15,23,42,0.18)] backdrop-blur">
-      <CardContent className="relative p-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-sky-500/10 opacity-80" />
-
-        <div className="relative flex items-start justify-between gap-4">
-          <div className="space-y-2 text-right">
-            <p className="text-sm font-medium text-slate-500">{title}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-              {value ?? "--"}
-            </h2>
-            {hint && <p className="text-xs text-slate-400">{hint}</p>}
-          </div>
-
-          <div className="rounded-2xl bg-gradient-to-br from-cyan-600 to-sky-700 p-3 text-white shadow-lg">
-            <Icon className="h-5 w-5" />
-          </div>
+    <div className="bg-white border-r-4 border-r-[#f9bd22] border-y border-y-[#e3e2e0] border-l border-l-[#e3e2e0] rounded-xl p-5 md:p-6 xl:p-8 flex flex-col justify-between group cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all">
+      <div>
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-[#faf9f7] border border-[#e3e2e0] flex items-center justify-center text-[#00150f] mb-4 md:mb-6 group-hover:bg-[#2b6954] group-hover:text-white transition-colors">
+          <Icon className="w-5 h-5 md:w-6 md:h-6" />
         </div>
-      </CardContent>
-    </Card>
+        <p className="text-[#717975] text-[10px] md:text-xs font-bold uppercase tracking-[0.1em]">{title}</p>
+      </div>
+
+      <div className="mt-4">
+        <h4 className="font-cairo text-3xl md:text-4xl font-black text-[#00150f] break-words">{value ?? "--"}</h4>
+        {hint && <p className="text-[10px] text-[#2b6954] font-bold mt-2 pt-1 uppercase flex items-center truncate">{hint}</p>}
+      </div>
+    </div>
   );
 }

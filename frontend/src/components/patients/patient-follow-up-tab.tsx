@@ -77,15 +77,15 @@ export function PatientFollowUpTab({ patient }: PatientFollowUpTabProps) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
+      <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
         <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 text-white shadow-md">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2b6954] text-white shadow-md">
             <ClipboardCheck className="h-5 w-5" />
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-slate-800">بيانات المتابعة</h3>
-            <p className="text-sm text-slate-500">
+            <h3 className="text-lg font-bold text-[#00150f]">بيانات المتابعة</h3>
+            <p className="text-sm text-[#717975]">
               حدّث حالة المريض وآخر زيارة وموعد المتابعة القادم.
             </p>
           </div>
@@ -100,7 +100,7 @@ export function PatientFollowUpTab({ patient }: PatientFollowUpTabProps) {
               type="date"
               value={form.last_visit_date}
               onChange={(e) => handleChange('last_visit_date', e.target.value)}
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -113,7 +113,7 @@ export function PatientFollowUpTab({ patient }: PatientFollowUpTabProps) {
               value={form.patient_status}
               onChange={(e) => handleChange('patient_status', e.target.value)}
               placeholder="مثال: يحتاج متابعة / مستقر / تحت العلاج"
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -125,7 +125,7 @@ export function PatientFollowUpTab({ patient }: PatientFollowUpTabProps) {
               value={form.follow_up_notes}
               onChange={(e) => handleChange('follow_up_notes', e.target.value)}
               placeholder="أدخل ملاحظات المتابعة"
-              className="min-h-[140px] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-cyan-400"
+              className="min-h-[140px] w-full rounded-xl border border-[#e3e2e0] bg-white px-4 py-3 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -139,7 +139,7 @@ export function PatientFollowUpTab({ patient }: PatientFollowUpTabProps) {
               onChange={(e) =>
                 handleChange('next_follow_up_date', e.target.value)
               }
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -147,7 +147,7 @@ export function PatientFollowUpTab({ patient }: PatientFollowUpTabProps) {
             <Button
               type="submit"
               disabled={updateMutation.isPending}
-              className="h-12 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 px-6 text-white hover:from-cyan-600 hover:to-sky-700"
+              className="h-12 rounded-xl bg-[#00150f] px-6 text-white hover:bg-[#2b6954]"
             >
               حفظ بيانات المتابعة
             </Button>

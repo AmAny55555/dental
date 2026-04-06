@@ -129,15 +129,15 @@ const { data: appointments = [], isLoading } = useQuery<Appointment[]>({
 
   return (
     <div className="space-y-6">
-      <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
+      <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
         <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 text-white shadow-md">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2b6954] text-white shadow-md">
             <CalendarDays className="h-5 w-5" />
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-slate-800">إضافة موعد جديد</h3>
-            <p className="text-sm text-slate-500">
+            <h3 className="text-lg font-bold text-[#00150f]">إضافة موعد جديد</h3>
+            <p className="text-sm text-[#717975]">
               أضف موعدًا جديدًا لهذا المريض بسهولة.
             </p>
           </div>
@@ -150,7 +150,7 @@ const { data: appointments = [], isLoading } = useQuery<Appointment[]>({
               type="date"
               value={form.date}
               onChange={(e) => handleChange('date', e.target.value)}
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -160,7 +160,7 @@ const { data: appointments = [], isLoading } = useQuery<Appointment[]>({
               type="time"
               value={form.time}
               onChange={(e) => handleChange('time', e.target.value)}
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -171,7 +171,7 @@ const { data: appointments = [], isLoading } = useQuery<Appointment[]>({
               onChange={(e) =>
                 handleChange('status', e.target.value as Appointment['status'])
               }
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             >
               <option value="pending">معلق</option>
               <option value="done">تم</option>
@@ -186,7 +186,7 @@ const { data: appointments = [], isLoading } = useQuery<Appointment[]>({
               value={form.notes}
               onChange={(e) => handleChange('notes', e.target.value)}
               placeholder="أدخل ملاحظات الموعد"
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -194,7 +194,7 @@ const { data: appointments = [], isLoading } = useQuery<Appointment[]>({
             <Button
               type="submit"
               disabled={createMutation.isPending}
-              className="h-12 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 px-6 text-white hover:from-cyan-600 hover:to-sky-700"
+              className="h-12 rounded-xl bg-[#00150f] px-6 text-white hover:bg-[#2b6954]"
             >
               إضافة الموعد
             </Button>
@@ -202,20 +202,20 @@ const { data: appointments = [], isLoading } = useQuery<Appointment[]>({
         </form>
       </div>
 
-      <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
+      <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
         <div className="mb-4">
-          <h3 className="text-lg font-bold text-slate-800">قائمة المواعيد</h3>
-          <p className="text-sm text-slate-500">
+          <h3 className="text-lg font-bold text-[#00150f]">قائمة المواعيد</h3>
+          <p className="text-sm text-[#717975]">
             جميع مواعيد المريض الحالية والسابقة.
           </p>
         </div>
 
         {isLoading ? (
-          <div className="rounded-2xl bg-white p-8 text-center text-sm text-slate-500">
+          <div className="rounded-xl bg-white p-8 text-center text-sm text-[#717975]">
             جاري تحميل المواعيد...
           </div>
         ) : appointments.length === 0 ? (
-          <div className="rounded-2xl bg-white p-8 text-center text-sm text-slate-500">
+          <div className="rounded-xl bg-white p-8 text-center text-sm text-[#717975]">
             لا توجد مواعيد لهذا المريض حتى الآن.
           </div>
         ) : (
@@ -223,7 +223,7 @@ const { data: appointments = [], isLoading } = useQuery<Appointment[]>({
             {appointments.map((appointment) => (
               <div
                 key={appointment.id}
-                className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                className="rounded-xl border border-[#e3e2e0] bg-white p-4 shadow-sm"
               >
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div className="space-y-3">
@@ -246,7 +246,7 @@ const { data: appointments = [], isLoading } = useQuery<Appointment[]>({
                       </span>
                     </div>
 
-                    <p className="text-sm leading-7 text-slate-500">
+                    <p className="text-sm leading-7 text-[#717975]">
                       {appointment.notes || 'لا توجد ملاحظات'}
                     </p>
                   </div>

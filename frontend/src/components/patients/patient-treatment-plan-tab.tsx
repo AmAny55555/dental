@@ -94,15 +94,15 @@ export function PatientTreatmentPlanTab({
 
   return (
     <div className="space-y-6">
-      <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
+      <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
         <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 text-white shadow-md">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2b6954] text-white shadow-md">
             <Stethoscope className="h-5 w-5" />
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-slate-800">خطة العلاج</h3>
-            <p className="text-sm text-slate-500">
+            <h3 className="text-lg font-bold text-[#00150f]">خطة العلاج</h3>
+            <p className="text-sm text-[#717975]">
               حدّث التشخيص ونوع العلاج وعدد الجلسات والحالة الحالية وملاحظات
               الطبيب.
             </p>
@@ -120,7 +120,7 @@ export function PatientTreatmentPlanTab({
                 handleChange('treatment_diagnosis', e.target.value)
               }
               placeholder="أدخل التشخيص"
-              className="min-h-[120px] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-cyan-400"
+              className="min-h-[120px] w-full rounded-xl border border-[#e3e2e0] bg-white px-4 py-3 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -133,7 +133,7 @@ export function PatientTreatmentPlanTab({
               value={form.treatment_type}
               onChange={(e) => handleChange('treatment_type', e.target.value)}
               placeholder="أدخل نوع العلاج"
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -149,7 +149,7 @@ export function PatientTreatmentPlanTab({
                 handleChange('treatment_sessions', e.target.value)
               }
               placeholder="أدخل عدد الجلسات"
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -162,7 +162,7 @@ export function PatientTreatmentPlanTab({
               value={form.treatment_status}
               onChange={(e) => handleChange('treatment_status', e.target.value)}
               placeholder="مثال: جاري العلاج / مكتمل / مؤجل"
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -174,7 +174,7 @@ export function PatientTreatmentPlanTab({
               value={form.treatment_notes}
               onChange={(e) => handleChange('treatment_notes', e.target.value)}
               placeholder="أدخل ملاحظات الطبيب"
-              className="min-h-[140px] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-cyan-400"
+              className="min-h-[140px] w-full rounded-xl border border-[#e3e2e0] bg-white px-4 py-3 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -182,7 +182,7 @@ export function PatientTreatmentPlanTab({
             <Button
               type="submit"
               disabled={updateMutation.isPending}
-              className="h-12 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 px-6 text-white hover:from-cyan-600 hover:to-sky-700"
+              className="h-12 rounded-xl bg-[#00150f] px-6 text-white hover:bg-[#2b6954]"
             >
               حفظ خطة العلاج
             </Button>

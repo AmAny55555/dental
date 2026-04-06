@@ -114,85 +114,53 @@ export function PatientsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(6,182,212,0.16),_transparent_35%),linear-gradient(to_bottom,_#f8fafc,_#ecfeff,_#e0f2fe)] px-4 py-6 md:px-8">
-      <div className="mx-auto max-w-7xl space-y-6 pb-8">
-        <section className="overflow-hidden rounded-[32px] border border-white/60 bg-white/80 shadow-2xl backdrop-blur">
-          <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="space-y-6 p-6 md:p-8">
-              <div className="flex items-start justify-between gap-4">
-                <div className="space-y-3">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 text-white shadow-lg">
-                    <Users className="h-8 w-8" />
-                  </div>
-
-                  <div className="space-y-2">
-                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-700">
-                      Patients Management
-                    </p>
-
-                    <h1 className="text-3xl font-extrabold text-slate-800 md:text-4xl">
-                      صفحة المرضى
-                    </h1>
-
-                    <p className="max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
-                      إدارة جميع المرضى داخل العيادة بشكل منظم، مع إمكانية البحث
-                      السريع والإضافة والتعديل والحذف وفتح ملف المريض الكامل.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <PatientsToolbar
-                search={search}
-                onSearchChange={setSearch}
-                onAddClick={handleOpenCreate}
-              />
+    <div className="p-8 lg:p-10 space-y-8 max-w-[1400px] w-full mx-auto bg-[#ffffff]">
+      <section className="bg-[#00150f] rounded-2xl p-8 relative overflow-hidden shadow-lg">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#2b6954] blur-[100px] opacity-30 -translate-y-1/2 translate-x-1/2 rounded-full" />
+        
+        <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-8">
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full border border-white/20 backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f9bd22] opacity-80" />
+              <span className="text-[10px] font-bold text-white/90 uppercase tracking-widest">Patients Management</span>
             </div>
-
-            <div className="hidden bg-gradient-to-br from-cyan-600 via-sky-600 to-teal-500 p-8 text-white lg:flex lg:flex-col lg:justify-between">
-              <div className="space-y-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-3xl shadow-lg backdrop-blur">
-                  🦷
-                </div>
-
-                <div className="space-y-3">
-                  <h2 className="text-3xl font-extrabold leading-tight">
-                    إدارة ملفات المرضى
-                  </h2>
-
-                  <p className="text-sm leading-7 text-cyan-50/90">
-                    كل بيانات المريض في مكان واحد، من البيانات الأساسية وحتى
-                    المتابعة وخطة العلاج.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
-                  <p className="text-sm text-cyan-100">إجمالي المرضى</p>
-                  <p className="mt-2 text-2xl font-bold">{patients.length}</p>
-                </div>
-
-                <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
-                  <p className="text-sm text-cyan-100">البحث السريع</p>
-                  <p className="mt-2 text-lg font-bold">بالاسم أو الهاتف</p>
-                </div>
-
-                <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
-                  <p className="text-sm text-cyan-100">الملف الطبي</p>
-                  <p className="mt-2 text-lg font-bold">بيانات منظمة</p>
-                </div>
-
-                <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
-                  <p className="text-sm text-cyan-100">الإجراءات</p>
-                  <p className="mt-2 text-lg font-bold">عرض وتعديل وحذف</p>
-                </div>
-              </div>
-            </div>
+            
+            <h1 className="text-3xl font-black text-white tracking-tight">سجل المرضى</h1>
+            <p className="text-sm text-white/60 max-w-sm font-medium leading-relaxed">
+              إدارة جميع المرضى داخل العيادة بشكل منظم، مع إمكانية البحث السريع والإضافة والتعديل وفتح ملف المريض الكامل.
+            </p>
           </div>
-        </section>
+          
+          <div className="flex-1 w-full max-w-md">
+            <PatientsToolbar
+              search={search}
+              onSearchChange={setSearch}
+              onAddClick={handleOpenCreate}
+            />
+          </div>
+        </div>
 
-        <section className="rounded-[32px] border border-white/60 bg-white/80 p-4 shadow-xl backdrop-blur md:p-6">
+        <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-white/10">
+          <div>
+            <p className="text-xs text-white/50 mb-1">إجمالي المرضى</p>
+            <p className="text-xl font-bold text-white tracking-tight">{patients.length}</p>
+          </div>
+          <div>
+            <p className="text-xs text-white/50 mb-1">البحث السريع</p>
+            <p className="text-lg font-bold text-[#f9bd22] tracking-tight">نشط</p>
+          </div>
+          <div>
+            <p className="text-xs text-white/50 mb-1">الملف الطبي</p>
+            <p className="text-lg font-bold text-[#2b6954] tracking-tight">سجلات مفصلة</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white border border-[#e3e2e0] rounded-xl overflow-hidden">
+        <div className="p-6 border-b border-[#e3e2e0]">
+          <h2 className="text-sm font-bold text-[#00150f]">جميع المرضى</h2>
+        </div>
+        <div className="p-0">
           <PatientsTable
             patients={patients}
             isLoading={isLoading}
@@ -200,16 +168,16 @@ export function PatientsPage() {
             onEdit={handleOpenEdit}
             onDelete={handleDelete}
           />
-        </section>
+        </div>
+      </section>
 
-        <PatientFormDialog
-          open={dialogOpen}
-          onOpenChange={setDialogOpen}
-          patient={selectedPatient}
-          onSubmit={handleSubmit}
-          isSubmitting={createMutation.isPending || updateMutation.isPending}
-        />
-      </div>
-    </main>
+      <PatientFormDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        patient={selectedPatient}
+        onSubmit={handleSubmit}
+        isSubmitting={createMutation.isPending || updateMutation.isPending}
+      />
+    </div>
   );
 }

@@ -48,6 +48,12 @@ export async function generateStaticParams() {
   return Array.from(ids, (id) => ({ id }));
 }
 
+import { AppLayout } from '@/components/layout/app-layout';
+
 export default function Page() {
-  return <PatientDetailsPage />;
+  return (
+    <AppLayout>
+      <PatientDetailsPage />
+    </AppLayout>
+  );
 }

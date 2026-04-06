@@ -126,15 +126,15 @@ export function PatientPaymentsSection({
 
   return (
     <div className="space-y-6">
-      <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
+      <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
         <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 text-white shadow-md">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2b6954] text-white shadow-md">
             <CreditCard className="h-5 w-5" />
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-slate-800">إضافة دفعة جديدة</h3>
-            <p className="text-sm text-slate-500">
+            <h3 className="text-lg font-bold text-[#00150f]">إضافة دفعة جديدة</h3>
+            <p className="text-sm text-[#717975]">
               سجلي دفعة جديدة لهذا المريض مع تفاصيل المبلغ.
             </p>
           </div>
@@ -155,7 +155,7 @@ export function PatientPaymentsSection({
               value={form.total_amount}
               onChange={(e) => handleChange('total_amount', e.target.value)}
               placeholder="أدخل المبلغ الكلي"
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -170,7 +170,7 @@ export function PatientPaymentsSection({
               value={form.paid}
               onChange={(e) => handleChange('paid', e.target.value)}
               placeholder="أدخل المبلغ المدفوع"
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -184,7 +184,7 @@ export function PatientPaymentsSection({
               step="0.01"
               value={form.remaining}
               readOnly
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-slate-100 px-4 text-sm outline-none"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-slate-100 px-4 text-sm outline-none"
             />
           </div>
 
@@ -196,7 +196,7 @@ export function PatientPaymentsSection({
               type="date"
               value={form.date}
               onChange={(e) => handleChange('date', e.target.value)}
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
+              className="h-12 w-full rounded-xl border border-[#e3e2e0] bg-white px-4 text-sm outline-none transition focus:border-cyan-400"
             />
           </div>
 
@@ -204,7 +204,7 @@ export function PatientPaymentsSection({
             <Button
               type="submit"
               disabled={createMutation.isPending}
-              className="h-12 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 px-6 text-white hover:from-cyan-600 hover:to-sky-700"
+              className="h-12 rounded-xl bg-[#00150f] px-6 text-white hover:bg-[#2b6954]"
             >
               إضافة الدفعة
             </Button>
@@ -213,48 +213,48 @@ export function PatientPaymentsSection({
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
-          <p className="text-sm font-medium text-slate-500">إجمالي المبالغ</p>
-          <p className="mt-2 text-2xl font-extrabold text-slate-800">
+        <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
+          <p className="text-sm font-medium text-[#717975]">إجمالي المبالغ</p>
+          <p className="mt-2 text-2xl font-extrabold text-[#00150f]">
             {summary.total}
           </p>
         </div>
 
-        <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
-          <p className="text-sm font-medium text-slate-500">إجمالي المدفوع</p>
+        <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
+          <p className="text-sm font-medium text-[#717975]">إجمالي المدفوع</p>
           <p className="mt-2 text-2xl font-extrabold text-emerald-600">
             {summary.paid}
           </p>
         </div>
 
-        <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
-          <p className="text-sm font-medium text-slate-500">إجمالي المتبقي</p>
+        <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
+          <p className="text-sm font-medium text-[#717975]">إجمالي المتبقي</p>
           <p className="mt-2 text-2xl font-extrabold text-amber-600">
             {summary.remaining}
           </p>
         </div>
       </div>
 
-      <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
+      <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
         <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 text-white shadow-md">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2b6954] text-white shadow-md">
             <Wallet className="h-5 w-5" />
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-slate-800">قائمة المدفوعات</h3>
-            <p className="text-sm text-slate-500">
+            <h3 className="text-lg font-bold text-[#00150f]">قائمة المدفوعات</h3>
+            <p className="text-sm text-[#717975]">
               جميع المدفوعات المسجلة لهذا المريض.
             </p>
           </div>
         </div>
 
         {isLoading ? (
-          <div className="rounded-2xl bg-white p-8 text-center text-sm text-slate-500">
+          <div className="rounded-xl bg-white p-8 text-center text-sm text-[#717975]">
             جاري تحميل المدفوعات...
           </div>
         ) : payments.length === 0 ? (
-          <div className="rounded-2xl bg-white p-8 text-center text-sm text-slate-500">
+          <div className="rounded-xl bg-white p-8 text-center text-sm text-[#717975]">
             لا توجد مدفوعات لهذا المريض حتى الآن.
           </div>
         ) : (
@@ -262,33 +262,33 @@ export function PatientPaymentsSection({
             {payments.map((payment) => (
               <div
                 key={payment.id}
-                className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                className="rounded-xl border border-[#e3e2e0] bg-white p-4 shadow-sm"
               >
                 <div className="grid gap-4 md:grid-cols-4">
                   <div>
-                    <p className="text-xs text-slate-400">المبلغ الكلي</p>
-                    <p className="mt-1 text-base font-bold text-slate-800">
+                    <p className="text-xs text-[#717975]">المبلغ الكلي</p>
+                    <p className="mt-1 text-base font-bold text-[#00150f]">
                       {payment.total_amount}
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-xs text-slate-400">المدفوع</p>
+                    <p className="text-xs text-[#717975]">المدفوع</p>
                     <p className="mt-1 text-base font-bold text-emerald-600">
                       {payment.paid}
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-xs text-slate-400">المتبقي</p>
+                    <p className="text-xs text-[#717975]">المتبقي</p>
                     <p className="mt-1 text-base font-bold text-amber-600">
                       {payment.remaining}
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-xs text-slate-400">التاريخ</p>
-                    <p className="mt-1 text-base font-bold text-slate-800">
+                    <p className="text-xs text-[#717975]">التاريخ</p>
+                    <p className="mt-1 text-base font-bold text-[#00150f]">
                       {payment.date || '-'}
                     </p>
                   </div>

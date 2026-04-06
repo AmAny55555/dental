@@ -91,7 +91,7 @@ export function PatientFormDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[620px] rounded-[28px] border border-white/60 bg-white/95 shadow-2xl">
         <DialogHeader>
-          <DialogTitle className="text-right text-2xl font-extrabold text-slate-800">
+          <DialogTitle className="text-right text-2xl font-extrabold text-[#00150f]">
             {isEditMode ? 'تعديل بيانات المريض' : 'إضافة مريض جديد'}
           </DialogTitle>
         </DialogHeader>
@@ -105,7 +105,7 @@ export function PatientFormDialog({
                 value={form.name}
                 onChange={(e) => handleChange('name', e.target.value)}
                 placeholder="أدخل اسم المريض"
-                className="h-12 rounded-2xl border-slate-200 bg-slate-50"
+                className="h-12 rounded-xl border-[#e3e2e0] bg-[#faf9f7]"
               />
               {errors.name ? (
                 <p className="text-sm text-destructive">{errors.name}</p>
@@ -119,7 +119,7 @@ export function PatientFormDialog({
                 value={form.phone}
                 onChange={(e) => handleChange('phone', e.target.value)}
                 placeholder="أدخل رقم الهاتف"
-                className="h-12 rounded-2xl border-slate-200 bg-slate-50"
+                className="h-12 rounded-xl border-[#e3e2e0] bg-[#faf9f7]"
               />
               {errors.phone ? (
                 <p className="text-sm text-destructive">{errors.phone}</p>
@@ -134,7 +134,7 @@ export function PatientFormDialog({
                 value={form.age}
                 onChange={(e) => handleChange('age', e.target.value)}
                 placeholder="أدخل العمر"
-                className="h-12 rounded-2xl border-slate-200 bg-slate-50"
+                className="h-12 rounded-xl border-[#e3e2e0] bg-[#faf9f7]"
               />
               {errors.age ? (
                 <p className="text-sm text-destructive">{errors.age}</p>
@@ -148,7 +148,7 @@ export function PatientFormDialog({
                 value={form.job_title}
                 onChange={(e) => handleChange('job_title', e.target.value)}
                 placeholder="أدخل الوظيفة"
-                className="h-12 rounded-2xl border-slate-200 bg-slate-50"
+                className="h-12 rounded-xl border-[#e3e2e0] bg-[#faf9f7]"
               />
             </div>
           </div>
@@ -160,7 +160,7 @@ export function PatientFormDialog({
               value={form.address}
               onChange={(e) => handleChange('address', e.target.value)}
               placeholder="أدخل العنوان"
-              className="h-12 rounded-2xl border-slate-200 bg-slate-50"
+              className="h-12 rounded-xl border-[#e3e2e0] bg-[#faf9f7]"
             />
           </div>
 
@@ -170,7 +170,7 @@ export function PatientFormDialog({
               variant="outline"
               onClick={() => onOpenChange(false)}
               disabled={isSubmitting}
-              className="rounded-2xl"
+              className="rounded-xl"
             >
               إلغاء
             </Button>
@@ -178,7 +178,7 @@ export function PatientFormDialog({
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 text-white hover:from-cyan-600 hover:to-sky-700"
+              className="rounded-xl bg-[#00150f] text-white hover:bg-[#2b6954]"
             >
               {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
               {isEditMode ? 'حفظ التعديلات' : 'إضافة المريض'}

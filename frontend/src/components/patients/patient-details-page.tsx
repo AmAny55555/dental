@@ -51,17 +51,17 @@ export function PatientDetailsPage() {
 
   if (Number.isNaN(patientId) || patientId <= 0) {
     return (
-      <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(6,182,212,0.16),_transparent_35%),linear-gradient(to_bottom,_#f8fafc,_#ecfeff,_#e0f2fe)] px-4 py-6 md:px-8">
+      <div className="p-8 lg:p-10 space-y-8 max-w-[1400px] w-full mx-auto bg-[#ffffff]">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-[32px] border border-white/60 bg-white/80 p-8 text-center shadow-2xl backdrop-blur">
-            <p className="text-lg font-bold text-slate-800">الرابط غير صحيح</p>
-            <p className="mt-2 text-sm text-slate-500">
+          <div className="bg-white border border-[#e3e2e0] rounded-xl overflow-hidden p-8 text-center">
+            <p className="text-lg font-bold text-[#00150f]">الرابط غير صحيح</p>
+            <p className="mt-2 text-sm text-[#717975]">
               لم يتم العثور على رقم مريض صالح داخل الرابط.
             </p>
 
             <div className="mt-6">
               <Link href="/patients">
-                <Button className="rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 text-white hover:from-cyan-600 hover:to-sky-700">
+                <Button className="rounded-2xl bg-[#00150f] text-white hover:bg-[#2b6954]">
                   <ArrowRight className="ml-2 h-4 w-4" />
                   الرجوع إلى المرضى
                 </Button>
@@ -69,30 +69,30 @@ export function PatientDetailsPage() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(6,182,212,0.16),_transparent_35%),linear-gradient(to_bottom,_#f8fafc,_#ecfeff,_#e0f2fe)] px-4 py-6 md:px-8">
+      <div className="p-8 lg:p-10 space-y-8 max-w-[1400px] w-full mx-auto bg-[#ffffff]">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-[32px] border border-white/60 bg-white/80 p-8 text-center shadow-2xl backdrop-blur">
-            <p className="text-sm font-medium text-slate-500">
+          <div className="bg-white border border-[#e3e2e0] rounded-xl overflow-hidden p-8 text-center">
+            <p className="text-sm font-medium text-[#717975]">
               جاري تحميل بيانات المريض...
             </p>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   if (isError) {
     return (
-      <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(6,182,212,0.16),_transparent_35%),linear-gradient(to_bottom,_#f8fafc,_#ecfeff,_#e0f2fe)] px-4 py-6 md:px-8">
+      <div className="p-8 lg:p-10 space-y-8 max-w-[1400px] w-full mx-auto bg-[#ffffff]">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-[32px] border border-white/60 bg-white/80 p-8 text-center shadow-2xl backdrop-blur">
-            <p className="text-lg font-bold text-slate-800">
+          <div className="bg-white border border-[#e3e2e0] rounded-xl overflow-hidden p-8 text-center">
+            <p className="text-lg font-bold text-[#00150f]">
               تعذر تحميل بيانات المريض
             </p>
             <p className="mt-2 text-sm text-red-500">
@@ -101,7 +101,7 @@ export function PatientDetailsPage() {
 
             <div className="mt-6">
               <Link href="/patients">
-                <Button className="rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 text-white hover:from-cyan-600 hover:to-sky-700">
+                <Button className="rounded-2xl bg-[#00150f] text-white hover:bg-[#2b6954]">
                   <ArrowRight className="ml-2 h-4 w-4" />
                   الرجوع إلى المرضى
                 </Button>
@@ -109,25 +109,25 @@ export function PatientDetailsPage() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   if (!patient) {
     return (
-      <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(6,182,212,0.16),_transparent_35%),linear-gradient(to_bottom,_#f8fafc,_#ecfeff,_#e0f2fe)] px-4 py-6 md:px-8">
+      <div className="p-8 lg:p-10 space-y-8 max-w-[1400px] w-full mx-auto bg-[#ffffff]">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-[32px] border border-white/60 bg-white/80 p-8 text-center shadow-2xl backdrop-blur">
-            <p className="text-lg font-bold text-slate-800">
+          <div className="bg-white border border-[#e3e2e0] rounded-xl overflow-hidden p-8 text-center">
+            <p className="text-lg font-bold text-[#00150f]">
               المريض غير موجود
             </p>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-[#717975]">
               لم يتم العثور على بيانات لهذا المريض.
             </p>
 
             <div className="mt-6">
               <Link href="/patients">
-                <Button className="rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 text-white hover:from-cyan-600 hover:to-sky-700">
+                <Button className="rounded-2xl bg-[#00150f] text-white hover:bg-[#2b6954]">
                   <ArrowRight className="ml-2 h-4 w-4" />
                   الرجوع إلى المرضى
                 </Button>
@@ -135,7 +135,7 @@ export function PatientDetailsPage() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
@@ -187,7 +187,7 @@ export function PatientDetailsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(6,182,212,0.16),_transparent_35%),linear-gradient(to_bottom,_#f8fafc,_#ecfeff,_#e0f2fe)] px-4 py-6 md:px-8">
+    <div className="p-8 lg:p-10 space-y-8 max-w-[1400px] w-full mx-auto bg-[#ffffff]">
       <div className="mx-auto max-w-7xl space-y-6 pb-8">
         <section className="overflow-hidden rounded-[32px] border border-white/60 bg-white/80 shadow-2xl backdrop-blur">
           <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
@@ -196,7 +196,7 @@ export function PatientDetailsPage() {
                 <Link href="/patients">
                   <Button
                     variant="outline"
-                    className="rounded-2xl border-slate-200 bg-white/80 shadow-sm hover:bg-slate-50"
+                    className="rounded-2xl border-slate-200 bg-white/80 shadow-sm hover:bg-[#faf9f7]"
                   >
                     <ArrowRight className="ml-2 h-4 w-4" />
                     رجوع
@@ -205,22 +205,22 @@ export function PatientDetailsPage() {
               </div>
 
               <div className="space-y-3">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-700">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2b6954]">
                   Patient Details
                 </p>
 
-                <h1 className="text-3xl font-extrabold text-slate-800 md:text-4xl">
+                <h1 className="text-3xl font-extrabold text-[#00150f] md:text-4xl">
                   {patient.name}
                 </h1>
 
-                <p className="max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
+                <p className="max-w-2xl text-sm leading-7 text-[#717975] md:text-base">
                   ملف المريض الكامل داخل العيادة، ويشمل البيانات الأساسية
                   والمواعيد والمدفوعات والمتابعة والتاريخ الطبي وخطة العلاج.
                 </p>
               </div>
             </div>
 
-            <div className="hidden bg-gradient-to-br from-cyan-600 via-sky-600 to-teal-500 p-8 text-white lg:flex lg:flex-col lg:justify-between">
+            <div className="hidden bg-gradient-to-br bg-[#00150f] p-8 text-white lg:flex lg:flex-col lg:justify-between">
               <div className="space-y-4">
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-3xl shadow-lg backdrop-blur">
                   🦷
@@ -231,14 +231,14 @@ export function PatientDetailsPage() {
                     ملف المريض
                   </h2>
 
-                  <p className="text-sm leading-7 text-cyan-50/90">
+                  <p className="text-sm leading-7 text-white/60">
                     كل ما يخص المريض في صفحة واحدة بشكل منظم وسهل للوصول.
                   </p>
                 </div>
               </div>
 
               <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
-                <p className="text-sm text-cyan-100">رقم الهاتف</p>
+                <p className="text-sm text-white/50">رقم الهاتف</p>
                 <p className="mt-2 text-xl font-bold">{patient.phone || '-'}</p>
               </div>
             </div>
@@ -247,33 +247,33 @@ export function PatientDetailsPage() {
 
         <section className="rounded-[32px] border border-white/60 bg-white/80 p-4 shadow-xl backdrop-blur md:p-6">
           <Tabs defaultValue="basic-info" className="space-y-6">
-            <TabsList className="h-auto w-full justify-start gap-2 overflow-x-auto rounded-2xl bg-slate-100 p-2">
-              <TabsTrigger value="basic-info" className="rounded-xl">
+            <TabsList className="h-auto w-full justify-start gap-3 overflow-x-auto rounded-[28px] bg-slate-100 p-3 md:p-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              <TabsTrigger value="basic-info" className="min-h-12 rounded-2xl px-4 py-3 text-sm md:px-5 md:py-3.5 md:text-base shrink-0">
                 <UserRound className="ml-2 h-4 w-4" />
                 البيانات الأساسية
               </TabsTrigger>
 
-              <TabsTrigger value="appointments" className="rounded-xl">
+              <TabsTrigger value="appointments" className="min-h-12 rounded-2xl px-4 py-3 text-sm md:px-5 md:py-3.5 md:text-base shrink-0">
                 <CalendarDays className="ml-2 h-4 w-4" />
                 المواعيد
               </TabsTrigger>
 
-              <TabsTrigger value="payments" className="rounded-xl">
+              <TabsTrigger value="payments" className="min-h-12 rounded-2xl px-4 py-3 text-sm md:px-5 md:py-3.5 md:text-base shrink-0">
                 <CreditCard className="ml-2 h-4 w-4" />
                 المدفوعات
               </TabsTrigger>
 
-              <TabsTrigger value="follow-up" className="rounded-xl">
+              <TabsTrigger value="follow-up" className="min-h-12 rounded-2xl px-4 py-3 text-sm md:px-5 md:py-3.5 md:text-base shrink-0">
                 <ClipboardList className="ml-2 h-4 w-4" />
                 المتابعة
               </TabsTrigger>
 
-              <TabsTrigger value="medical-history" className="rounded-xl">
+              <TabsTrigger value="medical-history" className="min-h-12 rounded-2xl px-4 py-3 text-sm md:px-5 md:py-3.5 md:text-base shrink-0">
                 <FileText className="ml-2 h-4 w-4" />
                 التاريخ الطبي
               </TabsTrigger>
 
-              <TabsTrigger value="treatment-plan" className="rounded-xl">
+              <TabsTrigger value="treatment-plan" className="min-h-12 rounded-2xl px-4 py-3 text-sm md:px-5 md:py-3.5 md:text-base shrink-0">
                 <Stethoscope className="ml-2 h-4 w-4" />
                 خطة العلاج
               </TabsTrigger>
@@ -288,19 +288,19 @@ export function PatientDetailsPage() {
                     return (
                       <div
                         key={item.label}
-                        className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm"
+                        className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm"
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div className="space-y-2">
-                            <p className="text-sm font-medium text-slate-500">
+                            <p className="text-sm font-medium text-[#717975]">
                               {item.label}
                             </p>
-                            <p className="break-words text-lg font-bold text-slate-800">
+                            <p className="break-words text-lg font-bold text-[#00150f]">
                               {item.value}
                             </p>
                           </div>
 
-                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 text-white shadow-md">
+                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2b6954] text-white shadow-md">
                             <Icon className="h-5 w-5" />
                           </div>
                         </div>
@@ -309,12 +309,12 @@ export function PatientDetailsPage() {
                   })}
                 </div>
 
-                <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
+                <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-slate-800">
+                    <h3 className="text-lg font-bold text-[#00150f]">
                       ملخص المتابعة
                     </h3>
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-[#717975]">
                       آخر بيانات متابعة محفوظة لهذا المريض.
                     </p>
                   </div>
@@ -325,10 +325,10 @@ export function PatientDetailsPage() {
                         key={item.label}
                         className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
                       >
-                        <p className="text-sm font-medium text-slate-500">
+                        <p className="text-sm font-medium text-[#717975]">
                           {item.label}
                         </p>
-                        <p className="mt-2 break-words text-base font-bold text-slate-800">
+                        <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                           {item.value}
                         </p>
                       </div>
@@ -336,89 +336,89 @@ export function PatientDetailsPage() {
                   </div>
                 </div>
 
-                <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
+                <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-slate-800">
+                    <h3 className="text-lg font-bold text-[#00150f]">
                       ملخص التاريخ الطبي
                     </h3>
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-[#717975]">
                       آخر بيانات التاريخ الطبي المحفوظة لهذا المريض.
                     </p>
                   </div>
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:col-span-2">
-                      <p className="text-sm font-medium text-slate-500">
+                      <p className="text-sm font-medium text-[#717975]">
                         التاريخ الطبي
                       </p>
-                      <p className="mt-2 break-words text-base font-bold text-slate-800">
+                      <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                         {patient.medical_history || '-'}
                       </p>
                     </div>
 
                     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                      <p className="text-sm font-medium text-slate-500">
+                      <p className="text-sm font-medium text-[#717975]">
                         الحساسية
                       </p>
-                      <p className="mt-2 break-words text-base font-bold text-slate-800">
+                      <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                         {patient.allergies || '-'}
                       </p>
                     </div>
 
                     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                      <p className="text-sm font-medium text-slate-500">
+                      <p className="text-sm font-medium text-[#717975]">
                         الأمراض المزمنة
                       </p>
-                      <p className="mt-2 break-words text-base font-bold text-slate-800">
+                      <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                         {patient.chronic_diseases || '-'}
                       </p>
                     </div>
 
                     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:col-span-2">
-                      <p className="text-sm font-medium text-slate-500">
+                      <p className="text-sm font-medium text-[#717975]">
                         الأدوية الحالية
                       </p>
-                      <p className="mt-2 break-words text-base font-bold text-slate-800">
+                      <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                         {patient.current_medications || '-'}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5 shadow-sm">
+                <div className="rounded-[28px] border border-[#e3e2e0] bg-[#faf9f7] p-5 shadow-sm">
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-slate-800">
+                    <h3 className="text-lg font-bold text-[#00150f]">
                       ملخص خطة العلاج
                     </h3>
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-[#717975]">
                       آخر بيانات خطة العلاج المحفوظة لهذا المريض.
                     </p>
                   </div>
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:col-span-2">
-                      <p className="text-sm font-medium text-slate-500">
+                      <p className="text-sm font-medium text-[#717975]">
                         التشخيص
                       </p>
-                      <p className="mt-2 break-words text-base font-bold text-slate-800">
+                      <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                         {patient.treatment_diagnosis || '-'}
                       </p>
                     </div>
 
                     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                      <p className="text-sm font-medium text-slate-500">
+                      <p className="text-sm font-medium text-[#717975]">
                         نوع العلاج
                       </p>
-                      <p className="mt-2 break-words text-base font-bold text-slate-800">
+                      <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                         {patient.treatment_type || '-'}
                       </p>
                     </div>
 
                     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                      <p className="text-sm font-medium text-slate-500">
+                      <p className="text-sm font-medium text-[#717975]">
                         عدد الجلسات
                       </p>
-                      <p className="mt-2 break-words text-base font-bold text-slate-800">
+                      <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                         {patient.treatment_sessions
                           ? String(patient.treatment_sessions)
                           : '-'}
@@ -426,19 +426,19 @@ export function PatientDetailsPage() {
                     </div>
 
                     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                      <p className="text-sm font-medium text-slate-500">
+                      <p className="text-sm font-medium text-[#717975]">
                         حالة العلاج
                       </p>
-                      <p className="mt-2 break-words text-base font-bold text-slate-800">
+                      <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                         {patient.treatment_status || '-'}
                       </p>
                     </div>
 
                     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:col-span-2">
-                      <p className="text-sm font-medium text-slate-500">
+                      <p className="text-sm font-medium text-[#717975]">
                         ملاحظات العلاج
                       </p>
-                      <p className="mt-2 break-words text-base font-bold text-slate-800">
+                      <p className="mt-2 break-words text-base font-bold text-[#00150f]">
                         {patient.treatment_notes || '-'}
                       </p>
                     </div>
@@ -469,7 +469,7 @@ export function PatientDetailsPage() {
           </Tabs>
         </section>
       </div>
-    </main>
+    </div>
   );
 }
 

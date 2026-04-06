@@ -58,25 +58,25 @@ export default function LoginForm() {
       onSubmit={handleSubmit}
       className="space-y-6 animate-in fade-in-0 zoom-in-95 duration-500"
     >
-      <div className="space-y-2">
-        <Label htmlFor="password" className="font-medium text-slate-700">
+      <div className="space-y-3">
+        <Label htmlFor="password" className="font-semibold text-stone-700">
           الرقم السري
         </Label>
 
         <Input
           id="password"
           type="password"
-          placeholder="ادخل الرقم السري"
+          placeholder="ادخل الرقم السري للوصول"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="h-12 rounded-xl border-slate-200 transition-all duration-300 focus:border-cyan-500 focus:ring-cyan-500"
+          className="h-14 rounded-2xl border-stone-200 bg-white px-5 text-lg transition-all duration-300 focus:border-emerald-800 focus:ring-emerald-800/20"
         />
       </div>
 
       <Button
         type="submit"
         disabled={loginMutation.isPending}
-        className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-600 to-sky-700 text-base font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-cyan-700 hover:to-sky-800 hover:shadow-xl active:scale-[0.98]"
+        className="group relative flex h-14 w-full items-center justify-center gap-3 overflow-hidden rounded-2xl bg-[linear-gradient(135deg,#022c22_0%,#064e3b_100%)] text-base font-bold tracking-wide text-amber-400 shadow-[0_10px_25px_-5px_rgba(2,44,34,0.4)] transition-all duration-300 hover:shadow-[0_15px_35px_-5px_rgba(2,44,34,0.5)] active:scale-[0.98]"
       >
         {loginMutation.isPending ? (
           <>
@@ -84,7 +84,7 @@ export default function LoginForm() {
             جاري الدخول...
           </>
         ) : (
-          "تسجيل الدخول"
+          "متابعة الدخول"
         )}
       </Button>
     </form>

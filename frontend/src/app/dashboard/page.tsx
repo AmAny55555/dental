@@ -8,10 +8,9 @@ import DashboardError from "@/components/dashboard/dashboard-error";
 import DashboardEmpty from "@/components/dashboard/dashboard-empty";
 import DashboardStatsSection from "@/components/dashboard/dashboard-stats";
 import RecentAppointments from "@/components/dashboard/RecentAppointments";
+import { AppLayout } from "@/components/layout/app-layout";
 import { dashboardService } from "@/services/api";
 import { useAuthGuard } from "@/hooks/useAuthGuard";
-import { Button } from "@/components/ui/button";
-import { Users } from "lucide-react";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -32,35 +31,33 @@ export default function DashboardPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(6,182,212,0.16),_transparent_35%),linear-gradient(to_bottom,_#f8fafc,_#ecfeff,_#e0f2fe)] px-4 py-6 md:px-8">
-      <div className="mx-auto max-w-7xl space-y-6 pb-8">
-        <DashboardHeader />
-
-        {/* زرار عرض المرضى */}
-        <div className="flex justify-start">
-          <Button
-            onClick={() => router.push("/patients")}
-            className="h-12 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 px-5 text-white shadow-lg hover:from-cyan-600 hover:to-sky-700"
-          >
-            <Users className="ml-2 h-4 w-4" />
-            عرض المرضى
-          </Button>
-        </div>
+    <AppLayout>
+      {/* Page Content */}
+      <div className="p-4 sm:p-6 lg:p-8 xl:p-10 space-y-6 lg:space-y-10 max-w-[1400px] w-full mx-auto">
+        {/* Grid Layout Top Area */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 hover:cursor-default">
+          <div className="lg:col-span-1 xl:col-span-2 h-full flex">
+            <DashboardHeader />
+          </div>
+          
+          {stats && !isLoading && !isError && (
+             <div className="lg:col-span-1 xl:col-span-2">
+               <DashboardStatsSection stats={stats} />
+             </div>
+          )}
+        </section>
 
         {isLoading && <DashboardLoading />}
         {isError && <DashboardError />}
-
+        
         {!isLoading && !isError && stats && (
-          <>
-            <DashboardStatsSection stats={stats} />
-            <RecentAppointments
-              appointments={stats.recentAppointments ?? []}
-            />
-          </>
+          <section className="w-full">
+            <RecentAppointments appointments={stats.recentAppointments ?? []} />
+          </section>
         )}
 
         {!isLoading && !isError && !stats && <DashboardEmpty />}
       </div>
-    </main>
+    </AppLayout>
   );
 }
