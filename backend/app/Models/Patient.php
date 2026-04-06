@@ -33,4 +33,14 @@ class Patient extends Model
         'treatment_status',
         'treatment_notes',
     ];
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

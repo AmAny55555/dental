@@ -1,5 +1,5 @@
 import { Activity, CalendarDays, Users, Wallet } from "lucide-react";
-import { DashboardStats } from "@/src/types/dashboard";
+import { DashboardStats } from "@/types/dashboard";
 import StatCard from "./stat-card";
 type DashboardStatsProps = {
   stats: DashboardStats;

@@ -42,8 +42,8 @@ export function PatientFollowUpTab({ patient }: PatientFollowUpTabProps) {
   const updateMutation = useMutation({
     mutationFn: async (values: FollowUpFormValues) => {
       return api.updatePatient(patient.id, {
-        name: patient.name,
-        phone: patient.phone,
+        name: patient.name ?? '',
+        phone: patient.phone ?? '',
         address: patient.address || '',
         job_title: patient.job_title || '',
         age: patient.age?.toString() || '',

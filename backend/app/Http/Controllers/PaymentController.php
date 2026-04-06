@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class PaymentController extends Controller
 {
@@ -33,6 +34,10 @@ class PaymentController extends Controller
             'date' => ['nullable', 'date'],
         ]);
 
+        if (blank($validated['date'] ?? null)) {
+            $validated['date'] = Carbon::today()->toDateString();
+        }
+
         $payment = Payment::create($validated);
 
         return response()->json([
@@ -57,6 +62,13 @@ class PaymentController extends Controller
             'remaining' => ['required', 'numeric'],
             'date' => ['nullable', 'date'],
         ]);
+
+        if (blank($validated['date'] ?? null)) {
+            $raw = $payment->getRawOriginal('date');
+            $validated['date'] = $raw
+                ? Carbon::parse($raw)->toDateString()
+                : Carbon::today()->toDateString();
+        }
 
         $payment->update($validated);
 

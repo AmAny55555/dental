@@ -3,7 +3,7 @@ import { PatientFormValues } from '@/types/patient';
 import { AppointmentFormValues } from '@/types/appointment';
 import { PaymentFormValues } from '@/types/payment';
 
-const BASE_URL = 'http://localhost:8000/api';
+const BASE_URL = 'https://dental.hatly.shop/backend/public/api';
 
 function getHeaders() {
   const token = localStorage.getItem('token');
@@ -128,8 +128,8 @@ export const api = {
     id: number | string,
     data: PatientFormValues | Record<string, unknown>
   ) => {
-    const res = await fetch(`${BASE_URL}/patients/${id}`, {
-      method: 'PUT',
+    const res = await fetch(`${BASE_URL}/patients/${id}/update`, {
+      method: 'POST',
       headers: getHeaders(),
       body: JSON.stringify(mapPatientPayload(data)),
     });
@@ -140,9 +140,10 @@ export const api = {
   },
 
   deletePatient: async (id: number | string) => {
-    const res = await fetch(`${BASE_URL}/patients/${id}`, {
-      method: 'DELETE',
+    const res = await fetch(`${BASE_URL}/patients/${id}/delete`, {
+      method: 'POST',
       headers: getHeaders(),
+      body: JSON.stringify({}),
     });
 
     return handleApiResponse(res);
@@ -189,8 +190,8 @@ export const api = {
     id: number | string,
     data: AppointmentFormValues
   ) => {
-    const res = await fetch(`${BASE_URL}/appointments/${id}`, {
-      method: 'PUT',
+    const res = await fetch(`${BASE_URL}/appointments/${id}/update`, {
+      method: 'POST',
       headers: getHeaders(),
       body: JSON.stringify({
         ...data,
@@ -204,9 +205,10 @@ export const api = {
   },
 
   deleteAppointment: async (id: number | string) => {
-    const res = await fetch(`${BASE_URL}/appointments/${id}`, {
-      method: 'DELETE',
+    const res = await fetch(`${BASE_URL}/appointments/${id}/delete`, {
+      method: 'POST',
       headers: getHeaders(),
+      body: JSON.stringify({}),
     });
 
     return handleApiResponse(res);

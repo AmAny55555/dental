@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Patient;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdatePatientRequest extends FormRequest
 {
@@ -13,9 +15,19 @@ class UpdatePatientRequest extends FormRequest
 
     public function rules(): array
     {
+        $routePatient = $this->route('patient');
+        $ignoreId = $routePatient instanceof Patient
+            ? $routePatient->getKey()
+            : $routePatient;
+
         return [
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
+            'phone' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('patients', 'phone')->ignore($ignoreId),
+            ],
             'address' => ['nullable', 'string'],
             'job_title' => ['nullable', 'string', 'max:255'],
             'age' => ['nullable', 'integer', 'min:0'],

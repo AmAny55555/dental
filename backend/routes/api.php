@@ -18,6 +18,16 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/dashboard/stats', [DashboardController::class, 'stats']);
 
+    /*
+     * Many shared hosts block or mishandle PUT/DELETE through Apache/nginx.
+     * POST fallbacks use the same controller + Sanctum auth as the REST routes.
+     */
+    Route::post('patients/{patient}/update', [PatientController::class, 'update']);
+    Route::post('patients/{patient}/delete', [PatientController::class, 'destroy']);
+
+    Route::post('appointments/{appointment}/update', [AppointmentController::class, 'update']);
+    Route::post('appointments/{appointment}/delete', [AppointmentController::class, 'destroy']);
+
     Route::apiResource('patients', PatientController::class);
     Route::apiResource('appointments', AppointmentController::class);
     Route::apiResource('payments', PaymentController::class)->only(['index', 'store']);

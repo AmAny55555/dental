@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use App\Models\Patient;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Throwable;
 
 class PatientController extends Controller
 {
@@ -18,7 +21,7 @@ class PatientController extends Controller
             ->when($search, function ($query) use ($search) {
                 $query->where(function ($q) use ($search) {
                     $q->where('name', 'like', '%' . $search . '%')
-                      ->orWhere('phone', 'like', '%' . $search . '%');
+                        ->orWhere('phone', 'like', '%' . $search . '%');
                 });
             })
             ->latest()
@@ -37,50 +40,52 @@ class PatientController extends Controller
         ], 201);
     }
 
-    public function show($id): JsonResponse
+    public function show(Patient $patient): JsonResponse
     {
-        $patient = Patient::find($id);
-
-        if (!$patient) {
-            return response()->json([
-                'message' => 'Patient not found',
-            ], 404);
-        }
-
         return response()->json([
             'data' => $patient,
         ], 200);
     }
 
-    public function update(UpdatePatientRequest $request, $id): JsonResponse
+    public function update(UpdatePatientRequest $request, Patient $patient): JsonResponse
     {
-        $patient = Patient::find($id);
+        try {
+            $patient->update($request->validated());
 
-        if (!$patient) {
             return response()->json([
-                'message' => 'Patient not found',
-            ], 404);
+                'message' => 'Patient updated successfully',
+                'data' => $patient,
+            ], 200);
+        } catch (QueryException $e) {
+            report($e);
+
+            return response()->json([
+                'message' => config('app.debug') ? $e->getMessage() : 'Could not update patient.',
+            ], 422);
         }
-
-        $patient->update($request->validated());
-
-        return response()->json([
-            'message' => 'Patient updated successfully',
-            'data' => $patient->fresh(),
-        ], 200);
     }
 
-    public function destroy($id): JsonResponse
+    public function destroy(Patient $patient): JsonResponse
     {
-        $patient = Patient::find($id);
+        try {
+            DB::transaction(function () use ($patient) {
+                $patient->appointments()->delete();
+                $patient->payments()->delete();
+                $patient->delete();
+            });
+        } catch (QueryException $e) {
+            report($e);
 
-        if (!$patient) {
             return response()->json([
-                'message' => 'Patient not found',
-            ], 404);
-        }
+                'message' => config('app.debug') ? $e->getMessage() : 'Could not delete patient.',
+            ], 409);
+        } catch (Throwable $e) {
+            report($e);
 
-        $patient->delete();
+            return response()->json([
+                'message' => config('app.debug') ? $e->getMessage() : 'Could not delete patient.',
+            ], 500);
+        }
 
         return response()->json([
             'message' => 'Patient deleted successfully',

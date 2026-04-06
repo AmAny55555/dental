@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StorePatientRequest extends FormRequest
 {
@@ -15,7 +16,7 @@ class StorePatientRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255', Rule::unique('patients', 'phone')],
             'address' => ['nullable', 'string'],
             'job_title' => ['nullable', 'string', 'max:255'],
             'age' => ['nullable', 'integer', 'min:0'],

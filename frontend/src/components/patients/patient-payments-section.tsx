@@ -62,7 +62,7 @@ export function PatientPaymentsSection({
         total_amount: values.total_amount,
         paid: values.paid,
         remaining: values.remaining,
-        date: values.date || undefined,
+        date: values.date,
       }),
     onSuccess: () => {
       toast.success('تمت إضافة الدفعة بنجاح');

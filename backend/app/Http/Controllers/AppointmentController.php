@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Throwable;
 
 class AppointmentController extends Controller
 {
@@ -69,7 +71,21 @@ class AppointmentController extends Controller
 
     public function destroy(Appointment $appointment): JsonResponse
     {
-        $appointment->delete();
+        try {
+            $appointment->delete();
+        } catch (QueryException $e) {
+            report($e);
+
+            return response()->json([
+                'message' => config('app.debug') ? $e->getMessage() : 'Could not delete appointment.',
+            ], 409);
+        } catch (Throwable $e) {
+            report($e);
+
+            return response()->json([
+                'message' => config('app.debug') ? $e->getMessage() : 'Could not delete appointment.',
+            ], 500);
+        }
 
         return response()->json([
             'message' => 'Appointment deleted successfully',

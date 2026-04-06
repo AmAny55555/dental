@@ -16,24 +16,24 @@ class AppointmentSeeder extends Seeder
         Appointment::create([
             'patient_id' => $patients[0]->id,
             'date' => Carbon::today(),
-            'time' => '10:00 ص',
-            'status' => 'تم',
+            'time' => '10:00:00',
+            'status' => 'done',
             'notes' => 'تنظيف أسنان',
         ]);
 
         Appointment::create([
             'patient_id' => $patients[1]->id,
             'date' => Carbon::today(),
-            'time' => '12:00 م',
-            'status' => 'مؤجل',
-            'notes' => 'حشو عصب',
+            'time' => '12:00:00',
+            'status' => 'pending',
+            'notes' => 'حشو عصب (مؤجل)',
         ]);
 
         Appointment::create([
             'patient_id' => $patients[2]->id,
             'date' => Carbon::today(),
-            'time' => '2:00 م',
-            'status' => 'تم',
+            'time' => '14:00:00',
+            'status' => 'done',
             'notes' => 'كشف عادي',
         ]);
     }
