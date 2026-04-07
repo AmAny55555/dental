@@ -19,7 +19,7 @@ export default function DashboardHeader() {
         </span>
         <h3 className="font-cairo text-3xl md:text-4xl font-black mt-5 leading-snug">
           أهلاً بك يا دكتور،<br />
-          <span className="text-[#a7cfc0]">الزملكاوي لطب الأسنان</span>
+          <span className="text-[#a7cfc0]">احمد القرش لطب الأسنان</span>
         </h3>
         <p className="text-[#a7cfc0]/90 text-sm mt-3 max-w-md leading-relaxed font-medium">
           يوجد لديك إشعارات جديدة ومواعيد مجدولة لليوم. فريق الاستقبال بانتظار توجيهاتك لمتابعة الحالات.

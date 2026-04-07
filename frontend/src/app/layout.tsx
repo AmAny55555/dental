@@ -15,8 +15,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dental Clinic System",
+  title: "Ahmed Al-Qurash",
   description: "Clinic Management System",
+  icons: {
+    icon: "/logo1.png",
+    shortcut: "/logo1.png",
+    apple: "/logo1.png",
+  },
 };
 
 export default function RootLayout({
